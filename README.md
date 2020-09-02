@@ -17,6 +17,7 @@
 
   ## Testing
   All tests PASS
+  ![](/assets/tests.png)
 
   ## Licensing
   ![Github License](https://img.shields.io/badge/license-MIT-yellowgreen.svg)
