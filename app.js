@@ -16,7 +16,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const employeeRoster = [];
 
 function createManager() {
-    console.log("What is your Manager's info?");
+   
     inquirer.prompt([
         {
             type: "input",
@@ -114,15 +114,17 @@ function createIntern(){
             message: "What school is your intern attending?"
         }
     ]).then(answers => {
-        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internGithub);
+        const intern = new Intern(answers.internName, answers.internId, answers.internSchool, answers.internGithub);
         employeeRoster.push(intern);
         createTeam();
     })
-    console.log("You have successfully built your team!");
 }
 
 function buildTeam(){
-    fs.writeFileSync(outputPath, render(employeeRoster), "utf-8");
+    fs.writeFileSync(outputPath, render(employeeRoster), "utf-8", function(err, answers) {
+        if (err)
+        throw err;
+    });
    
 }
 createManager();
